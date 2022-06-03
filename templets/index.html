@@ -56,7 +56,7 @@
 						<h3 class="bg-dark text-light text-center pt-2 pb-2 rounded">
 							Nouvelles Demandes
 						</h3>
-						{% for item in data %}
+						{% for item in datas %}
 						<div class="box-flex d-flex align-items-center p-2 rounded mb-4 w-100">
 							<div class="info w-75">
 								<a href="{% url 'dettails' item.id %}">{{item.name_command}}</a>

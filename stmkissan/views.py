@@ -19,7 +19,7 @@ from django.utils.html import strip_tags
 
 def home(request):
     context = {
-        'data': newCommands.objects.filter(Status=True),
+        'datas': newCommands.objects.filter(Status=True),
         'cat': Categorie.objects.all(),
     }
     return render(request, 'index.html', context)

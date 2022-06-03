@@ -3,6 +3,7 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="container">
+	{% for object in object %}
     <div class="card bg-dark text-white">
   <img src="{{object.image_cat.url}}" class="card-img" alt="...">
   <div class="card-img-overlay text-center">
@@ -10,6 +11,7 @@
     <p class="card-text">{{object.Description}}</p>
     <p class="card-text">commander un {{object.name_cat}}</p>
   </div>
+  {% endfor %}
 </div>
 <!-- Add command  -->
 

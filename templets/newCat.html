@@ -1,0 +1,22 @@
+{% extends 'main.html' %} {% block content %} {% load crispy_forms_tags %}
+<div class="img-cover">
+<div class="container mt-5 mb-4">
+	
+        {% include 'alerts/messages.html' %}
+	<div class="my-form container p-3 my-5 rounded border w-50 ">
+        
+		<form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+			<h2 class="text-center bg-dark text-light p-3 rounded w-100">Add New Categorie</h2>
+			<hr />
+            <!-- <input type="text" name="namec"><br>
+            <input type="file" name="imagec"><br>
+            <input type="text" name="des"><br> -->
+			{{forms|crispy}}
+           
+			<button type="submit" class="btn btn-outline-dark p-2 text-center ">Add Categorie</button>
+		</form>
+	</div>
+</div>
+</div>
+{% endblock %}

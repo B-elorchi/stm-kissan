@@ -1,0 +1,352 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="shortcut icon"
+			href="{% static 'img/logo2.png' %}"
+			type="image/x-icon"
+		/>
+		<title>STMWebsite</title>
+		<!--========================= Boostrap Link Css ========================= -->
+		<link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static '/css/bootstrap.min.css.map' %}" />
+		<!--========================= Boostrap Files Js ========================= -->
+		<script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
+		<script src="{% static '/js/bootstrap.bundle.min.js.map' %}"></script>
+		<!--========================= Font Awesome Link Css ========================= -->
+		<link rel="stylesheet" href="{% static '/css/all.min.css' %}" />
+		<link rel="stylesheet" href="{% static '/css/splide.min.css' %}" />
+		<!--========================= Custom File Css ========================= -->
+		<link rel="stylesheet" href="{% static '/css/splide-core.min.css' %}" />
+		<script src="{% static '/js/jQuery.js' %}"></script>
+		<link rel="stylesheet" href="{% static '/css/style.css' %}" />
+		<link rel="stylesheet" href="{% static '/css/styletwo.css' %}" />
+		<link rel="stylesheet" href="{% static '/css/index2.css' %}" />
+		<style>
+			.my-form {
+				background-color: white;
+				box-shadow: 1px 3px 5px black;
+			}
+			.form-group {
+				margin-bottom: 20px;
+			}
+			@media (max-width: 768px) {
+				.form-row {
+					display: block !important;
+				}
+			}
+
+			.form-group input,
+			select,
+			.form-row input {
+				font-weight: bold;
+			}
+			.form-group label,
+			.form-row label {
+				margin: 6px 0;
+				font-weight: bold;
+				font-family: cursive;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Loader page -->
+		<div class="loader">
+			<div class="loader-icon">
+				<img src="{% static '/img/loading (1).gif' %}" alt="" />
+			</div>
+		</div>
+		<!-- <<==============<<<=========== Start Section Header =============>>>===========>> -->
+		<div
+			class="navheader container-fluid d-flex flex-wrap justify-content-between text-center bg-dark text-light pt-2 pb-2"
+		>
+			<a href="" class="text-light"
+				><i class="fas fa-phone pe-2"></i>+212*******************</a
+			>
+			<a href="" class="text-light"
+				><i class="fas fa-map-marked-alt pe-2"></i>Maarif******************</a
+			>
+			<div class="d-flex justify-content-between gap-3">
+				<a href="" class="text-light">
+					<i class="fab fa-facebook"></i>
+				</a>
+				<a href="" class="text-light">
+					<i class="fab fa-whatsapp"></i>
+				</a>
+				<a href="" class="text-light">
+					<i class="fab fa-instagram"></i>
+				</a>
+			</div>
+		</div>
+		<header class="header sticky-top" id="header">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="{% url 'home' %}">
+						<img
+							src="{% static '/img/logo2.png' %}"
+							width="70px"
+							height="70px"
+							class="rounded-pill"
+							alt=""
+						/>
+						STMWebsite
+					</a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<!-- <span class="navbar-toggler-icon"></span> -->
+						<i class="fa-solid fa-bars"></i>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto">
+							<li class="nav-item">
+								<a
+									class="nav-link active"
+									aria-current="page"
+									href="{% url 'home' %}"
+									><i class="fa-solid fa-house"></i>Home</a
+								>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'services' %}"
+									><i class="fas fa-tools"></i>Services</a
+								>
+							</li>
+
+							<li class="nav-item">
+								<a href="{% url 'contact' %}" class="nav-link"
+									><i class="fas fa-headphones-alt"></i>Contact</a
+								>
+							</li>
+							<li class="nav-item">
+								<a href=" {% url 'commander' %}" class="nav-link"
+									><i class="fas fa-edit"></i>Commnder</a
+								>
+							</li>
+							<li class="nav-item">
+								<a href="{% url 'about' %}" class="nav-link"
+									><i class="fa-solid fa-circle-info"></i>About we</a
+								>
+							</li>
+							{% if request.user.is_authenticated %}
+							<li class="nav-item dropdown">
+								<a
+									class="nav-link dropdown-toggle"
+									href="#"
+									id="navbarDropdown"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Welcome({{request.user.username}}) <i class="fas fa-user"></i>
+								</a>
+								<ul class="dropdown-menu drop-down" aria-labelledby="navbarDropdown">
+									<li><a class="dropdown-item" href="http://127.0.0.1:8000/admin/">Admin</a></li>
+									<li><a class="dropdown-item" href="{% url 'commands' %}">All Demande</a></li>
+									<li><a class="dropdown-item" href="{% url 'categorie' %}">Add Categorie</a></li>
+									<li><hr class="dropdown-divider" /></li>
+									<li>
+										<a class="dropdown-item" href="#">Something else here</a>
+									</li>
+								</ul>
+							</li>
+							
+							{% endif %}
+						</ul>
+						<form class="d-flex" method='GET' action="{% url 'search' %}">
+							<input
+								class="form-control"
+								type="text"
+								placeholder="Search"
+								name = "serv"
+							/>
+							<!-- <input type="submit" value="search" class="btn btn-outline-secondary"> -->
+							<button type="submit" class="btn btn-outline-secondary" id="sr" style="border: none" type="submit">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</button>
+						</form>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<!-- <<==============<<<=========== End Section Header =============>>>===========>> -->
+		{% block content %} {% endblock %}
+		<!--========================= Start Footer ========================= -->
+		<footer class="footer mt-5 pt-4">
+			<div class="container-fluid">
+				<div class="row gap-5">
+					<div class="col-md-4">
+						<h1 class="mb-4">
+							<img
+								src="{% static '/img/logo.jpg' %}"
+								width="60px"
+								height="60px"
+								alt=""
+								class="rounded-pill"
+							/>
+							Repaire Home
+						</h1>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+							esse, ut iste, sequi magnam facilis alias quia voluptatum
+							voluptates unde odit debitis? Harum deserunt alias, numquam
+							necessitatibus iusto voluptas sit.
+						</p>
+					</div>
+					<div class="col-md-3">
+						<h3>Information</h3>
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="nav-link" aria-current="page" href="#"
+									><i class="fa-solid fa-angles-right"></i>Home</a
+								>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#"
+									><i class="fa-solid fa-angles-right"></i>Services</a
+								>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link"
+									><i class="fa-solid fa-angles-right"></i>Contact</a
+								>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link"
+									><i class="fa-solid fa-angles-right"></i>Commnder</a
+								>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link"
+									><i class="fa-solid fa-angles-right"></i>About we</a
+								>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-md-4">
+						<h3>Renovation Office</h3>
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="nav-link"
+									><i class="fa-solid fa-envelope"></i>Email</a
+								>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link"><i class="fas fa-phone"></i>Téléphone</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link"><i class="fa-solid fa-clock"></i>24/24h</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link"
+									><i class="fa-solid fa-location-dot"></i>location</a
+								>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link"
+									><i class="fa-brands fa-whatsapp"></i>whatsapp</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<div class="">
+			<p class="text-light bg-dark text-center pt-4 pb-4">
+				CopyRight &copy; 2022 Created by
+				<a href="http://www.elorchi.com" target="_blank">Elorchi</a> made with
+				❤️
+			</p>
+		</div>
+		<!--========================= End Footer ========================= -->
+		<!--========================= Font Awesome Link Js ========================= -->
+		<script src="{% static '/js/all.min.js' %}"></script>
+		<!--========================= Custom File Js ========================= -->
+		<script src="{% static '/js/splide.min.js' %}"></script>
+
+		<script src="{% static '/js/main.js' %}"></script>
+		<script>
+			$(document).ready(() => {
+				console.log($("#header").scrollTop());
+				window.onscroll = () => {
+					if (window.scrollY >= 50) {
+						$(".navbar").addClass("header-scroll");
+						$(".dropdown").addClass("black");
+						$(".dropdown-menu").addClass("white");
+					} else {
+						$(".navbar").removeClass("header-scroll");
+						$(".dropdown").removeClass("white");
+						$(".dropdown-menu").removeClass("white");
+					}
+				};
+				let x;
+				let widthW = window.innerWidth;
+				if (widthW <= 600) {
+					x = 1;
+					console.log(window.innerWidth);
+				} else if (widthW >= 768 && widthW < 992) {
+					x = 2;
+					console.log(window.innerWidth);
+				} else if (widthW > 992) {
+					x = 3;
+					console.log(window.innerWidth);
+				}
+				new Splide(".splide", {
+					type: "loop",
+					autoplay: "play",
+					perPage: x,
+				}).mount();
+				if (window.scrollY > 107) {
+					console.log("yes");
+					console.log(window.scrollY);
+				} else {
+					console.log("yes");
+				}
+			});
+
+			// Show By Scrolling
+			window.addEventListener("scroll", rv);
+
+			function rv() {
+				var x = document.querySelectorAll(".rv");
+				for (var i = 0; i < x.length; i++) {
+					var windowheight = window.innerHeight;
+					var rvl = x[i].getBoundingClientRect().top;
+					var rvPo = 170;
+					// console.log(rvl);
+					if (rvl < windowheight - rvPo) {
+						x[i].classList.add("act");
+					} else {
+						x[i].classList.remove("act");
+					}
+				}
+			}
+			$(window).on("load", () => {
+				document.querySelectorAll(".loader").forEach((e) => {
+					e.classList.add("none");
+					//$('.container').fadeIn(1000);
+				});
+			});
+			function ad(){
+
+			}
+			document.querySelector('#sr').addEventListener('click',()=>{
+				window.onload=ad();
+			});
+		</script>
+	</body>
+</html>

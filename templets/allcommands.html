@@ -1,0 +1,62 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="box mt-5 mb-5 p-3 pt-4 pb-4">
+        <h2 class="bg-dark text-light text-center m-3 rounded p-3">All Demande d'intervention</h2>
+        {% include 'alerts/messages.html' %}
+        {% for data in commands %}
+        <h4>command = {{data.id}}</h4>
+        <table class="table table-striped table-hover p-3 border">
+        <tr>
+            <th class="w-25 ps-2">Titre de la demande	</th>
+            <td>{{data.name_command}}</td>
+        </tr>
+        <tr>
+            <th class="w-25 ps-2">Description</th>
+            <td>{{data.Description}}</td>
+        </tr>
+        <tr>
+            <th class="w-25 ps-2">Durée d'intervention</th>
+            <td>{{ data.Durre_work}}</td>
+        </tr>
+        <tr>
+            <th class="w-25 ps-2">Urgence</th>
+            <td>{{data.argunce}}</td>
+            
+        </tr>
+        <tr>
+            <th class="w-25 ps-2">Domaine</th>
+            <td>{{data.Domain}}</td>
+            
+        </tr>
+        <tr>
+            <th class="w-25 ps-2">Date d'intervention	</th>
+            <td>{{data.date_Start}}</td>
+        
+        </tr>
+        <tr>
+            <th class="w-25 ps-2">Statut</th>
+            {% if data.Status == True %}
+            <td class="text-success">Validé</td>
+            {% else %}
+            <td class="text-danger">Non Validé</td>
+            {% endif %}
+            
+        </tr>
+        <th>
+            <td>
+                <a href="{% url 'valide' data.id %}" class="btn btn-outline-success">Valider</a>
+                <a href="{% url 'nvalide' data.id %}" class="btn btn-outline-info">Non Valider</a>
+                <a href="{% url 'delete' data.id %}" class="btn btn-outline-danger">Delete</a>
+            </td>
+        </th>
+        </table>
+        <hr>
+        <hr>
+        {% endfor %}
+        <a href="{% url 'home' %}" class="btn btn-outline-dark float-end p-2 m-3">Go Back</a>
+    </div>
+</div>
+{% endblock %}

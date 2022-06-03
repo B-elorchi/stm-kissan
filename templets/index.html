@@ -1,0 +1,335 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<!-- <<==============<<<=========== Start Section Main =============>>>===========>> -->
+		<section class="main mt-3" id="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 mb-3">
+						<div
+							id="carouselExampleControls"
+							class="carousel slide"
+							data-bs-ride="carousel"
+						>
+							<div class="carousel-inner">
+								<div class="carousel-item active">
+									<img src="{% static '/img/post05.jpg' %}" class="d-block w-100" alt="..." />
+								</div>
+								<div class="carousel-item">
+									<img src="{% static '/img/post07.jpg' %}" class="d-block w-100" alt="..." />
+								</div>
+								<div class="carousel-item">
+									<img src="{% static '/img/post06.jpg' %}" class="d-block w-100" alt="..." />
+								</div>
+								<div class="carousel-item">
+									<img src="{% static '/img/post08.jpg' %}" class="d-block w-100" alt="..." />
+								</div>
+							</div>
+							<button
+								class="carousel-control-prev"
+								type="button"
+								data-bs-target="#carouselExampleControls"
+								data-bs-slide="prev"
+							>
+								<span
+									class="carousel-control-prev-icon"
+									aria-hidden="true"
+								></span>
+								<span class="visually-hidden">Previous</span>
+							</button>
+							<button
+								class="carousel-control-next"
+								type="button"
+								data-bs-target="#carouselExampleControls"
+								data-bs-slide="next"
+							>
+								<span
+									class="carousel-control-next-icon"
+									aria-hidden="true"
+								></span>
+								<span class="visually-hidden">Next</span>
+							</button>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h3 class="bg-dark text-light text-center pt-2 pb-2 rounded">
+							Nouvelles Demandes
+						</h3>
+						{% for item in data %}
+						<div class="box-flex d-flex align-items-center p-2 rounded mb-4 w-100">
+							<div class="info w-75">
+								<a href="{% url 'dettails' item.id %}">{{item.name_command}}</a>
+								<p>{{item.Description}}</p>
+							</div>
+							<div class="image w-25">
+								<img
+									src="{% static '/img/img_plombier.jpg' %}"
+									width="90"
+									class="rounded"
+									alt=""
+								/>
+							</div>
+						</div>
+						{% endfor %}
+						
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Start Futures -->
+		<div class="futures mt-5 mb-4 rv">
+			<div class="section-head text-center mt-5 mb-4 pb-4">
+				<h2>Handyman Services</h2>
+				<p>
+					From complete turn key to project manager. Leave the building to the
+					professionals.
+				</p>
+			</div>
+			<div class="container mb-4">
+				<div class="row gap-4 pt-4 mt-5 mb-5">
+					<div class="col p-2 rounded pt-4">
+						<div class="d-flex align-items-center gap-5 ps-3 mb-3">
+							<span class="border-re"><i class="fa-brands fa-react"></i></span>
+
+							<div class="info">
+								<h6>Best Materials</h6>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col p-2 rounded pt-4">
+						<div class="d-flex align-items-center gap-5 ps-3">
+							<span class="border-re"><i class="fa-solid fa-clock"></i></span>
+
+							<div class="info">
+								<h6>24/7 Services</h6>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col border p-2 rounded pt-4">
+						<div class="d-flex align-items-center gap-5 ps-3">
+							<span class="border-re"
+								><i class="fa-solid fa-money-bill-1"></i
+							></span>
+
+							<div class="info">
+								<h6>Affordable Price</h6>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section class="categorie mb-5 mt-5 pt-5 pb-5 rv" id="categorie">
+			<div class="section-head text-center mt-5 mb-4 pb-4">
+				<h3>serach for {{name}}</h3>
+					<h2>Services Man</h2>
+					<p>
+						From complete turn key to project manager. Leave the building to the
+						professionals.
+					</p>
+				</div>
+			<div class="container">
+				
+				<div class="cat-col">
+					<div class="row m-auto">
+						{% for item in cat %}
+						<div class="col">
+							<div class="box border p-2 rounded">
+								<img src="{{item.image_cat.url}}" alt="" />
+								<div class="info">
+									<h4>{{item.name_cat}}</h4>
+								</div>
+								<div class="hover-card">
+									<div class="info">
+										<h3>{{item.name_cat}}</h3>
+										<a href="{% url 'servDettails' item.id %}" class="btn btn-outline-light rounded"
+											>Learn more</a
+										>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+						<a href="{% url 'services' %}" class="more text-center mb-4 m-auto"
+							>More Services <i class="fa-solid fa-circle-arrow-right"></i
+						></a>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+		<!-- End Futures -->
+		<!-- =========================Start Section About Us============================= -->
+		<section class="aboutus mt-5 pt-4 mb-5 pb-4 rv" id="about">
+			<div class="section-head text-center mt-5 mb-4 pb-4">
+					<h2>About Us</h2>
+					<p>
+						From complete turn key to project manager. Leave the building to the
+						professionals.
+					</p>
+			</div>
+			<div class="container mt-3">
+				<div class="row align-items-center">
+					<div class="col-md-5">
+						<div class="image">
+							<img src="{% static '/img/about.jpg' %}" alt="">
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="d-flex justify-content-around">
+							<div class="col-x">
+								<span>+233</span>
+								<p>Lorem ipsum dolor sit amet .</p>
+							</div>
+							<div class="col-x">
+								<span>+233</span>
+								<p>Lorem ipsum dolor sit amet .</p>
+							</div>
+							
+						</div>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse praesentium debitis delectus distinctio animi quibusdam aliquam, harum numquam possimus nemo eaque vel iure odio iste eum dignissimos velit id fuga. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto reprehenderit dolore, nulla impedit voluptatum eos cupiditate corporis molestiae esse. Iure porro delectus quia, provident odio nobis nostrum quos? Sequi, dolore. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat dignissimos eos error nulla aliquam, ea aut? Non repellat porro eum quisquam autem esse, magnam sed sunt tempora atque, deleniti dolores.</p>
+
+						<a href="#" class="btn btn-outline-dark">Read More</a>
+					</div>
+				</div>
+			</div>
+
+		</section>
+		<!-- =========================End Section About Us============================= -->
+		
+		<!-- -----------------Start Section Testimonials---------- -->
+		<div class="tesimonials rv">
+			<div class="section-head text-center mt-5 mb-4 pb-4">
+				<h2>Testimonials</h2>
+				<p>
+					From complete turn key to project manager. Leave the building to the
+					professionals.
+				</p>
+			</div>
+			<div class="container">
+				<section class="splide">
+					<div class="splide__slider">
+						<div class="splide__track">
+							<div class="splide__list">
+								<div class="splide__slide">
+									<div class="box pt-2 pb-3" style="width: 330px">
+										<div
+											class="testi text-center m-auto p-2 text-light bg-dark rounded"
+										>
+											<img
+												src="{% static '/img/testi3.jpg' %}"
+												width="90px"
+												height="90px"
+												class="rounded-pill"
+												alt=""
+											/>
+
+											<div class="icons">
+												<i class="fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+												<i class="fa-solid fa-star-half"></i>
+											</div>
+											<p class="mb-4 mt-3">
+												Lorem ipsum, dolor sit amet consectetur adipisicing
+												elit. Praesentium odit, unde sed, possimus soluta eaque
+												ducimus dicta eos cum molestias modi! Quas quam dolore
+												magnam pariatur nostrum autem excepturi suscipit.
+											</p>
+											<h3>
+												<i class="fa-solid fa-quote-left"></i>
+												Elorchi Brahim
+												<i class="fa-solid fa-quote-right"></i>
+											</h3>
+										</div>
+									</div>
+								</div>
+								<div class="splide__slide">
+									<div class="box pt-2 pb-3" style="width: 330px">
+										<div
+											class="testi text-center m-auto p-2 text-light bg-dark rounded"
+										>
+											<img
+												src="{% static '/img/testi2.jpg' %}"
+												width="90px"
+												height="90px"
+												class="rounded-pill"
+												alt=""
+											/>
+
+											<div class="icons">
+												<i class="fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+												<i class="fa-solid fa-star-half"></i>
+											</div>
+											<p class="mb-4 mt-3">
+												Lorem ipsum, dolor sit amet consectetur adipisicing
+												elit. Praesentium odit, unde sed, possimus soluta eaque
+												ducimus dicta eos cum molestias modi! Quas quam dolore
+												magnam pariatur nostrum autem excepturi suscipit.
+											</p>
+											<h3>
+												<i class="fa-solid fa-quote-left"></i>
+												Elorchi Brahim
+												<i class="fa-solid fa-quote-right"></i>
+											</h3>
+										</div>
+									</div>
+								</div>
+								<div class="splide__slide">
+									<div class="box pt-2 pb-3" style="width: 330px">
+										<div
+											class="testi text-center m-auto p-2 text-light bg-dark rounded"
+										>
+											<img
+												src="{% static '/img/testi1.jpg' %}"
+												width="90px"
+												height="90px"
+												class="rounded-pill"
+												alt=""
+											/>
+
+											<div class="icons">
+												<i class="fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+												<i class="fa-solid fa-star"></i>
+												<i class="fa-solid fa-star-half"></i>
+											</div>
+											<p class="mb-4 mt-3">
+												Lorem ipsum, dolor sit amet consectetur adipisicing
+												elit. Praesentium odit, unde sed, possimus soluta eaque
+												ducimus dicta eos cum molestias modi! Quas quam dolore
+												magnam pariatur nostrum autem excepturi suscipit.
+											</p>
+											<h3>
+												<i class="fa-solid fa-quote-left"></i>
+												Elorchi Brahim
+												<i class="fa-solid fa-quote-right"></i>
+											</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="splide__progress">
+							<div class="splide__progress__bar"></div>
+						</div>
+					</div>
+
+					<button class="splide__toggle btn btn-outline-dark" type="button">
+						<i class="fa-solid fa-play splide__toggle__play"></i>
+						<i class="fa-solid fa-pause splide__toggle__pause"></i>
+					</button>
+				</section>
+			</div>
+		</div>
+		<!-- -----------------End Section Testimonials---------- -->
+{% endblock %}

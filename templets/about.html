@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+		<!-- <<==============<<<=========== Start Section Main =============>>>===========>> -->
+		<div class="aboutus mt-4 mb-5 pt-4">
+			<div class="container">
+				<h3>Pourquoi Allom3alem ?</h3>
+                <img src="./img/logo.jpg" alt="">
+				<div class="card mb-3">
+					<div class="card-header bg-dark text-light">Principe</div>
+					<div class="card-body">
+						<p class="card-text">
+							Allom3alem, est un site spécialisé dans l’intermédiation sociale entre les artisans (plombiers, électriciens, peintres… etc.) et des clients potentiels. Le concept d’Allom3alem repose sur deux objectifs : le premier étant un système de qualification des artisans dans leurs spécialités de prédilection. Une qualification qui permettra à ces maîtres artisans de mettre en valeur leurs compétences et de les présenter à leurs clients. Le deuxième objectif à caractère social vise l’organisation de l’activité afin que les artisans puissent bénéficier d’avantages sociaux, de formations, de visibilité sur le net, … etc. Sur le court terme Allom3alem.ma se positionne comme un moteur de recherche sur la métropole de Casablanca avant de se positionner sur le royaume. À long terme, chaque artisan pourra créer sa propre entreprise.
+						</p>
+						
+					</div>
+				</div>
+				<div class="card mb-3">
+					<div class="card-header bg-dark text-light">Résultat</div>
+					<div class="card-body">
+						<p class="card-text">
+							Au service du client, allom3alem offre un cadre agréable de confiance mutuel entre client et le m3allem pour que le service de réparation ou d'installation se fasse dans les règles de l'art. Avec son personnel qualifié Allom3alem, veillera sur le bon déroulement de l'opération suivant les trois critères d'excellence, le prix, la qualité et le délai d'intervention.
+						</p>
+						
+					</div>
+
+				</div>
+                <div class="image text-center mt-4 mb-4 ">
+                    <img src="./img/resultats.png" alt="">
+                </div>
+				<form action="" method="POST">
+					{% csrf_token %}
+					{{forms.as_p}}
+					<input type="submit" value="add">
+				</form>
+				
+			</div>
+		</div>
+		<!-- -----------------End Section Testimonials---------- -->
+	{% endblock %}

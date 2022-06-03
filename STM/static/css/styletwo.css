@@ -1,0 +1,39 @@
+.my-form{
+    position :relative;
+    overflow:hidden;
+}
+.my-form input{
+  width : 100%;
+  border-radius: 5px;
+  outline: none;
+  padding: 5px ;
+  height: 45px;
+}
+.my-form label{
+  font-weight:bold;
+  font-family: cursive;
+  margin: 10px 0;
+}
+.my-form textarea{
+  width : 100%;
+  border-radius: 5px;
+  padding: 5px;
+}
+.my-form button{
+  margin: 10px 40%;
+  left:50%;
+}
+/* .black{
+    background-color: black;
+    color: white;
+} */
+/* .white{
+    background-color: white;
+        color: black;
+} */
+
+@media (max-width:768px) {
+    .my-form{
+        width : 100% !important;
+    }
+}

@@ -1,0 +1,53 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<div class="p-4">
+	<div class="row gap-3 text-center m-auto">
+		{% for item in allserv %}
+		<div class="col">
+			<div class="card" style="width: 18rem">
+				<img
+					src="{{item.image_cat.url}}"
+					class="card-img-top"
+					alt="..."
+				/>
+				<div class="card-body">
+					<h5 class="card-title">{{item.name_cat}}</h5>
+					<p class="card-text">
+						{{item.Description|truncatewords:10}}
+					</p>
+					<div class="d-flex justify-content-between">
+                        <a href="{% url 'commander' %}" class="btn btn-outline-primary">commonder</a>
+                        <a href="{% url 'servDettails' item.id %}" class="btn btn-outline-dark">dettails</a>
+                    </div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+		{% for item in cat %}
+		<div class="col">
+			<div class="card" style="width: 18rem">
+				<img
+					src="{{item.image_cat.url}}"
+					class="card-img-top"
+					alt="..."
+				/>
+				<div class="card-body">
+					<h5 class="card-title">{{item.name_cat}}</h5>
+					<p class="card-text">
+						{{item.Description|truncatewords:10}}
+					</p>
+					<div class="d-flex justify-content-between">
+                        <a href="{% url 'commander' %}" class="btn btn-outline-primary">commonder</a>
+                        <a href="{% url 'servDettails' item.id %}" class="btn btn-outline-dark">dettails</a>
+                    </div>
+				</div>
+			</div>
+		</div>
+		{% empty %}
+		<h2 class="text-center bg-danger text-light p-2 w-50 m-auto rounded">No Result Found <a href="{%url 'services'%}">all Service</a></h2>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
+
+
+

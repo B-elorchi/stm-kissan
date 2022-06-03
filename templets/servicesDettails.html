@@ -1,0 +1,123 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+    <div class="card bg-dark text-white">
+  <img src="{{object.image_cat.url}}" class="card-img" alt="...">
+  <div class="card-img-overlay text-center">
+    <h5 class="card-title">{{object.name_cat}}</h5>
+    <p class="card-text">{{object.Description}}</p>
+    <p class="card-text">commander un {{object.name_cat}}</p>
+  </div>
+</div>
+<!-- Add command  -->
+
+  {% include 'alerts/messages.html' %}
+	<div class="my-form container p-3 my-5 rounded border">
+        
+		<form method="POST">
+            {% csrf_token %}
+			<h2 class="text-center bg-dark text-light p-3 rounded">Commander un {{data.name_cat}}</h2>
+			<hr />
+
+			<div class="form-row d-flex flex-wrap gap-1">
+				<div class="form-group col-md-6">
+					<label for="inputFirstName">Nom</label>
+					<input
+						type="text"
+						class="form-control"
+						id="inputFirstName"
+						required
+                        name="client_nom"
+					/>
+				</div>
+				<div class="form-group col-md-5">
+					<label for="inputLastName">Prénom</label>
+					<input type="text" class="form-control" id="inputLastName" required  name="client_prenom"/>
+				</div>
+			</div>
+			<div class="form-row d-flex gap-1">
+				<div class="form-group col-md-6">
+					<label for="inputEmail">Email</label>
+					<input
+						type="email"
+                        name="email"
+						class="form-control"
+						id="inputEmail"
+						placeholder="name@example.com"
+						required
+					/>
+				</div>
+				<div class="form-group col-md-5">
+					<label for="inputAddress">Tel</label>
+					<input
+						type="tel"
+                        name="tel"
+						class="form-control"
+						id="inputAddress"
+						placeholder="+21265555"
+						required
+					/>
+				</div>
+			</div>
+			<!-- <div class="form-group col-md-11">
+				<label for="inputCity">Titre de la demande</label>
+				<input type="text" class="form-control" id="inputCity" required name="name_command" />
+			</div> -->
+			<div class="form-group col-md-11">
+				<label for="inputCity">Description</label>
+				<textarea name="Description" id="" cols="30" rows="5" class="form-control" ></textarea>
+			</div>
+			<div class="form-row d-flex gap-1">
+				<div class="form-group col-md-4">
+					<label for="inputZip">Domaine</label>
+					{{forms.Domain}}
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputZip">Ville</label>
+					{{forms.ville}}
+				</div>
+				<div class="form-group col-md-3">
+					<label for="inputZip">Date d'intervention</label>
+					<input
+						type="date"
+						class="form-control"
+						id="inputZip"
+						placeholder=""
+						required
+                        name="date_Start"
+					/>
+				</div>
+			</div>
+			
+
+			<div class="form-row d-flex gap-2 align-items-center">
+				<!-- <div class="form-group col-md-4">
+					<label for="inputUsername">Urgence</label>
+					{{forms.argunce}}
+				</div> -->
+				<div class="form-group col-md-4">
+					<label for="inputPassword">Durée d'intervention</label>
+					{{forms.Durre_work}}
+				</div>
+                <div class="form-group col-md-5">
+				<label for="inputAddress2">Address</label>
+				<input
+					type="text"
+					class="form-control"
+					id="inputAddress2"
+					placeholder="Apartment, studio, or floor"
+					required
+                    name="Adreess"
+				/>
+			</div>
+                
+			</div>
+		
+			<button type="submit" class="btn btn-outline-dark p-3 ">Add Commands</button>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

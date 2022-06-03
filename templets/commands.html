@@ -1,0 +1,129 @@
+{% extends 'main.html' %} {% block content %} {% load crispy_forms_tags %}
+<div class="container mt-5 mb-4">
+	<!-- <form action="" method="">
+			{% csrf_token %} 
+            {{forms|crispy}}
+            
+			<button type="submit" class="btn btn-outline-dark mt-4 mb-4">Add Command</button>
+		</form> -->
+        {% include 'alerts/messages.html' %}
+	<div class="my-form container p-3 my-5 rounded border">
+        
+		<form method="POST">
+            {% csrf_token %}
+			<h2 class="text-center bg-dark text-light p-3 rounded">Add New Commands</h2>
+			<hr />
+
+			<div class="form-row d-flex flex-wrap gap-1">
+				<div class="form-group col-md-6">
+					<label for="inputFirstName">Nom</label>
+					<input
+						type="text"
+						class="form-control"
+						id="inputFirstName"
+						required
+                        name="client_nom"
+					/>
+				</div>
+				<div class="form-group col-md-5">
+					<label for="inputLastName">Prénom</label>
+					<input type="text" class="form-control" id="inputLastName" required  name="client_prenom"/>
+				</div>
+			</div>
+			<div class="form-row d-flex gap-1">
+				<div class="form-group col-md-6">
+					<label for="inputEmail">Email</label>
+					<input
+						type="email"
+                        name="email"
+						class="form-control"
+						id="inputEmail"
+						placeholder="name@example.com"
+						required
+					/>
+				</div>
+				<div class="form-group col-md-5">
+					<label for="inputAddress">Tel</label>
+					<input
+						type="tel"
+                        name="tel"
+						class="form-control"
+						id="inputAddress"
+						placeholder="+21265555"
+						required
+					/>
+				</div>
+			</div>
+			<div class="form-group col-md-11">
+				<label for="inputCity">Titre de la demande</label>
+				<input type="text" class="form-control" id="inputCity" required name="name_command" />
+			</div>
+			<div class="form-group col-md-11">
+				<label for="inputCity">Description</label>
+				<textarea name="Description" id="" cols="30" rows="5" class="form-control" ></textarea>
+			</div>
+			<div class="form-row d-flex gap-1">
+				<div class="form-group col-md-4">
+					<label for="inputZip">Domaine</label>
+					{{forms.Domain}}
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputZip">Ville</label>
+					{{forms.ville}}
+				</div>
+				<div class="form-group col-md-3">
+					<label for="inputZip">Date d'intervention</label>
+					<input
+						type="date"
+						class="form-control"
+						id="inputZip"
+						placeholder=""
+						required
+                        name="date_Start"
+					/>
+				</div>
+			</div>
+			<div class="form-group col-md-11">
+				<label for="inputAddress2">Address</label>
+				<input
+					type="text"
+					class="form-control"
+					id="inputAddress2"
+					placeholder="Apartment, studio, or floor"
+					required
+                    name="Adreess"
+				/>
+			</div>
+
+			<div class="form-row d-flex gap-2">
+				<div class="form-group col-md-4">
+					<label for="inputUsername">Urgence</label>
+					{{forms.argunce}}
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputPassword">Durée d'intervention</label>
+					{{forms.Durre_work}}
+				</div>
+                <div class="form-group col-md-3">
+					<label for="inputPassword">Image fuit</label>
+					{{forms.image}}
+				</div>
+			</div>
+			<!-- <div class="form-group">
+                <div class="pretty p-svg p-curve p-jelly">
+                    <input type="checkbox" id="inputTerms" />
+                    <div class="state p-warning">
+                       
+                        <svg class="svg svg-icon" viewBox="0 0 20 20">
+                            <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
+                        </svg>
+                        <label>I agree to the terms of use and privacy policy</label>
+                    </div>
+                </div>
+            </div> -->
+			<button type="submit" class="btn btn-outline-dark p-3 ">Add Commands</button>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

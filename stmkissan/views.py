@@ -86,16 +86,16 @@ def command(request):
         if forms.is_valid():
             forms.save()
             messages.success(request, "your command was added sucsufly")
-            html_content = render_to_string("commandEmail.html", data)
-        text_content = strip_tags(html_content)
-        email = EmailMultiAlternatives(
-            data['title'],
-            text_content,
-            settings.EMAIL_HOST_USER,
-            ["brahimelorchi1937@gmail.com"]
-        )
-        email.attach_alternative(html_content, "text/html")
-        email.send()
+            # html_content = render_to_string("commandEmail.html", data)
+        # text_content = strip_tags(html_content)
+        # email = EmailMultiAlternatives(
+        #     data['title'],
+        #     text_content,
+        #     settings.EMAIL_HOST_USER,
+        #     ["brahimelorchi1937@gmail.com"]
+        # )
+        # email.attach_alternative(html_content, "text/html")
+        # email.send()
         return redirect('commander')
     else:
         forms = Commndes()
@@ -120,17 +120,17 @@ def contact(request):
             "message": message,
         }
 
-        html_content = render_to_string("templetsEmail.html", context)
-        text_content = strip_tags(html_content)
-        email = EmailMultiAlternatives(
-            subject,
-            text_content,
-            settings.EMAIL_HOST_USER,
-            ["brahimelorchi1937@gmail.com"]
-        )
-        email.attach_alternative(html_content, "text/html")
-        email.send()
-        messages.success(request, "merci")
+        # html_content = render_to_string("templetsEmail.html", context)
+        # text_content = strip_tags(html_content)
+        # email = EmailMultiAlternatives(
+        #     subject,
+        #     text_content,
+        #     settings.EMAIL_HOST_USER,
+        #     ["brahimelorchi1937@gmail.com"]
+        # )
+        # email.attach_alternative(html_content, "text/html")
+        # email.send()
+        messages.success(request, "merci pour votre message")
         return redirect('contact')
     else:
         return render(request, 'contactUs.html')

@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#35b*n!dh1c7x%s!+&@b&c1sp2fdg6vui#uqga4i=owqy^n!8g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["www.stm-kissan.herokuapp.com", "stm-kissan.herokuapp.com",
+ALLOWED_HOSTS = ["www.stm-kissan.herokuapp.com", "stm-kissan.herokuapp.com",'stm.elorchi.com',
                  "https://www.stm-kissan.herokuapp.com", "127.0.0.1"]
 
 
